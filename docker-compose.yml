@@ -22,20 +22,20 @@ services:
   #  volumes:
   #    - redisdata:/data
 
-  #pgadmin-weather:
-  #  image: dpage/pgadmin4:latest
-  #  restart: always
-  #  depends_on:
-  #    - postgres-weather
+  pgadmin-weather:
+    image: dpage/pgadmin4:latest
+    restart: always
+    depends_on:
+      - postgres-weather
     
-  #  environment:
-  #    PGADMIN_DEFAULT_EMAIL: admin@admin.com
-  #    PGADMIN_DEFAULT_PASSWORD: admin
-  #  ports:
-  #    - "5050:80"
-  #  volumes:
-  #    - pgadmin_data:/var/lib/pgadmin
-  #    - ./pgadmin/servers.json:/pgadmin4/servers.json
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+      - ./pgadmin/servers.json:/pgadmin4/servers.json
 
 volumes:
   pgdata:
